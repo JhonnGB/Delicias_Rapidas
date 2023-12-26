@@ -1,0 +1,401 @@
+* {
+  font-family: "Heebo", sans-serif;
+  text-align: center;
+  font-size: 16px;
+}
+body {
+  overflow-x: hidden;
+  background-color: #eaeaea;
+}
+header {
+  width: 100%;
+  height: 50px;
+  background-color: #b5c8e4;
+}
+
+/*                        -------    Estilos autenticación admin    -------- */
+.auth-admin__body {
+  height: 100vh;
+  background-image: url('../imgs/static/fondo-auth.jpg');
+  background-size: cover;
+}
+.auth-admin__contenedor {
+  position: absolute;
+  width: 55%;
+  top: 20%;
+  left: 24%;
+  padding: 30px 10px;
+  background-color: #ffffffcc;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00000033; 
+}
+.auth-admin__formulario h1 {
+  margin: 10px 0 0;
+}
+.auth-admin__formulario span {
+  display: block;
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+.auth-admin__formulario input {
+  height: 1.8rem;
+}
+.auth-admin__formulario input:focus {
+  outline: none;
+}
+.auth-admin__formulario button {
+  margin-left: 15px;
+  padding: 4px 8px;
+  font-size: 1.1rem;
+  letter-spacing: .5px;
+  border-style: none;
+  border-radius: 3px;
+  color: #222222;
+  background-color: #e85353;
+  box-shadow: 2px 2px 5px 1px #9e9e9e;
+}
+
+
+/*                           -------    Estilos menu admin    -------- */
+.contenedor__header-adm {
+  display: flex;
+  height: 60px;
+}
+.header-adm__zona-usuario {
+  width: 15%;
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.header-adm__ruta img {
+  width: 25px;
+  transition: all 0.3s
+}
+.header-adm__ruta2 img {
+  width: 32px;
+  transition: all 0.3s
+}
+
+.header-adm__ruta img:hover,
+.header-adm__ruta2 img:hover {
+  transform: scale(1.1);
+}
+.menu-adm__barra {
+  width: 80px;
+  /* max-width: 230px; */
+  height: 100%;
+  padding: 0 1%;
+  color: #fff;
+  display: flex;
+  background-color: #627da7;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: all 0.6s;
+}
+.menu-adm__span {
+  font-weight: 500;
+  display: none;
+}
+.menu-adm__boton {
+  width: 50px;
+  background: none;
+  border: none;
+}
+.menu-adm__boton img {
+  width: 22px;
+  color: #fff;
+}
+.adm-nav {
+  position: absolute;
+  width: 0;
+  padding: 0;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 30px;
+  transition: all 0.6s;
+  background-color: #627da7;
+  & a {
+    color: transparent;
+  }
+}
+.mostrar-nav {
+  opacity: 1;
+  width: 230px;
+  padding: 2%;
+  color: #fff;
+  & a {
+    color: #fff;
+  }
+}
+.adm-nav a {
+  font-weight: 400;
+  text-decoration: none;
+}
+.adm-nav a:hover {
+  text-shadow: 0 0 5px #fff;
+}
+.adm-nav hr {
+  margin-top: 40px;
+  width: 90%;
+}
+.contenedor-contenido button:hover {
+  cursor: pointer;
+}
+.contenedor-contenido {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin: 1%;
+  padding: 2%;
+  background-color: #fff;
+}
+.contenido__encabezado-tabla {
+  display: flex;
+  padding: 1%;
+  padding-top: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+.contenedor-contenido h1 {
+  display: inline-block;
+  color: #4d4d4d;
+  margin: 0;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+.boton__sin-filtro {
+  margin-left: 15px;
+  transition: all 0.3s;
+}
+.boton__sin-filtro img {
+  width: 18px;
+}
+.boton__sin-filtro:hover {
+  opacity: 0.5;
+}
+.boton__sin-filtro:active {
+  opacity: 1;
+}
+.crear-categoria__adm {
+  background-color: #fff;
+  border: none;
+}
+.crear-categoria__adm img {
+  width: 45%;
+  transition: transform 0.5s ease;
+  opacity: 0.7;
+}
+.crear-categoria__adm img:hover {
+  opacity: 1;
+  transform: scale(1.1) rotate(180deg);
+  background-color: rgb(240, 255, 246);
+  border-radius: 50%;
+}
+
+/* ------  Estilos de tabla  ------- */
+.tabla-contenido {
+  display: flex;
+  border: solid 1px #b3b3b3;
+  border-bottom: none;
+}
+.tabla-contenido table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tabla-contenido thead {
+  background-color: #f3f3f3;
+}
+.contenido__ver-mas {
+  width: 25px;
+  opacity: 0.7;
+  transition: all 0.5s;
+}
+.contenido__ver-mas:hover {
+  opacity: 1;
+  /* background-color: #f6f1dd; */
+  transform: scale(1.1);
+}
+.tabla-contenido thead th {
+  padding: 20px 15px;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.tabla-contenido td {
+  padding: 12px;
+  border-bottom: solid 1px #b3b3b3;
+}
+.tabla-contenido tbody tr {
+  height: 70px;
+  transition: all 0.4s;
+}
+.tabla-contenido tbody tr:hover {
+  background-color: #eaebf1;
+}
+/* Estilo para difuminar desde la derecha */
+.td-difuminado {
+  position: relative;
+  overflow: hidden;
+}
+
+.td-difuminado::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%; /* Ajusta según sea necesario */
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 1)
+  );
+  pointer-events: none;
+}
+.categoria__boton-eliminar,
+.categoria__boton-editar {
+  border: none;
+  padding: 5px 10px;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  color: #fff;
+  background-color: #e85353;
+  border-radius: 4px;
+}
+.categoria__boton-editar {
+  color: #fff;
+  background-color: #84adeb;
+}
+.categoria__boton-eliminar:hover,
+.categoria__boton-editar:hover {
+  /* font-weight: 500;   */
+  text-shadow: 1px 1px 15px #fff, 1px 1px 15px #fff;
+}
+
+/*                      ---------    Contenedores Ventanas Emergentes - General     ----------                  */
+.ventana-crear__container,
+.ventana-eliminar__container,
+.ventana-editar__container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000080;
+  z-index: 100;
+  backdrop-filter: blur(1px);
+}
+.crear-adm__contenedor,
+.editar-adm__contenedor,
+.eliminar-adm__contenedor {
+  width: 45%;
+  margin: 10% auto;
+  padding: 2%;
+  background-color: #fff;
+  border-radius: 7px;
+}
+
+/*                               ------------   Ventana Crear Categoria (Admin)   ------------                    */
+.crear-adm__contenedor h2,
+.editar-adm__contenedor h2 {
+  margin: 4%;
+}
+.crear-adm__contenedor form,
+.editar-adm__contenedor form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  row-gap: 25px;
+  justify-content: left;
+  align-items: center;
+}
+.crear-adm__contenedor form label,
+.editar-adm__contenedor label {
+  width: 30%;
+}
+.crear-adm__contenedor form input,
+.editar-adm__contenedor input {
+  width: 50%;
+  max-height: 25px;
+  text-align: start;
+}
+.crear-adm__contenedor form input:focus,
+.editar-adm__contenedor input:focus {
+  outline: none;
+}
+.categoria__input-file {
+  border: none;
+}
+.custom-file-input button {
+  background-color: #e85353;
+}
+.crear__contenedor-botones,
+.crear__contenedor-botones {
+  width: 80%;
+  display: flex;
+  column-gap: 10px;
+  justify-content: right;
+}
+.crear__contenedor-botones button,
+.crear__contenedor-botones button {
+  padding: 4px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #84adeb;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+#cancelarCrear,
+#cancelarEditar {
+  background-color: #e85353;
+}
+.crear__contenedor-botones a {
+  padding: 4px 12px;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #e85353;
+}
+/*                               ------------   Ventana Eliminar Categoria (Admin)   ------------                    */
+.eliminar-adm__contenedor div {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.eliminar-adm__contenedor div span {
+  display: block;
+  margin: 5px;
+  align-items: center;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-size: 1.2rem;
+}
+.eliminar-adm__contenedor div img {
+  width: 30px;
+}
+.eliminar-adm__contenedor p {
+  color: #393939;
+  font-weight: 500;
+  margin: 5px 0 20px;
+}
+/* estilos de botones  */
+.btn-ejecutar__adm,
+.btn-cancelar__adm {
+  padding: 4px 8px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  background-color: #e85353;
+}
+.btn-cancelar__adm {
+  background-color: #84adeb;
+}
+
+/*                               ------------   Ventana Actualizar Categoria (Admin)   ------------                    */

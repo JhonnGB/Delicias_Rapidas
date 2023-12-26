@@ -1,0 +1,57 @@
+<%- include("../partials/head", {tituloWeb: 'Productos' }) %>
+
+<!-- Encabezado perosnalizado -->
+<%- include('../partials/custom-header') %>
+
+<!-- barra de busqueda -->
+<div class="barra-busqueda">
+    <input class="barra-busqueda__input" type="text" placeholder="">
+    <button class="barra-busqueda__boton">
+        <a href="#"><img src="../icons/icono-lupa.png" alt="busqueda"></a>
+    </button>
+</div>
+<!-- titulo de categoria escogida -->
+<div class="titulo-categoria">
+    <div class="titulo-categoria__decoracion"></div>
+    <h1 class="titulo-categoria__texto"><%= productos.length > 0 & productos.length < 8 ? productos[0].categoria.toUpperCase() : 'PRODUCTOS' %></h1>
+    <div class="titulo-categoria__decoracion"></div>
+</div>
+
+<main class="container-products">
+    <!-- barra categorias -->
+    <nav class="barra-categorias">
+        <a class="barra-categorias__boton <%= isTodosActive ? 'categoria-active' : '' %>" href="/productos/todos">
+            <img src="../icons/menu-todos.png" alt="">
+        </a>
+
+        <% categories.forEach(function(category) { %>
+            <a class="barra-categorias__boton <%= nombreCatego === category.nomCatego ? 'categoria-active' : '' %>" href="/productos/<%=category.nomCatego%>">
+                <img src="../imgs/<%=category.icono%>" alt="">
+            </a>
+        <% }); %>
+    </nav>
+
+    <!-- Productos -->
+    <div class="contenedor-productos">
+        <% productos.forEach(function(product) { %>
+        <div class="producto" category="hamburguesas">
+            <img class="producto__img" src="/imgs/<%=product.img%>" alt="<%=product.nombre%>">
+            <h4 class="producto__nombre"><%=product.nombre%></h4>
+            <p class="producto__descrip"><%=product.descripcion%></p>
+            <div class="producto__añadir">
+                <div>
+                    <b class="producto__añadir__precio-texto">Precio:</b>
+                    <b class="producto__añadir__precio-valor">$ <%= product.precio.toLocaleString('es-ES') %></b>
+                </div>
+                <button class="producto__añadir__boton"><a href="/agregar/<%= product._id %>">Añadir</a></button>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</main>        
+
+<!-- Footer personalizado -->
+<%- include('../partials/footer') %>
+
+<!-- Footer -->
+<%- include('../partials/custom-footer') %>

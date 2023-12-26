@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="../css/estilosAdm.css">
+
+
+<div class="crear-adm__contenedor">
+    <h2>Crear Nuevo Producto</h2>
+    <form action="/adm/crear/producto" method="post" enctype="multipart/form-data">
+        
+        <label for="categoria">Nombre Categoria</label>
+        <% if ( !categoria == [] ) {%>
+            <input type="text" name="categoria" value="<%= categoria %>" readonly>
+        <% } else { %>
+            <input type="text" name="categoria" required>  
+        <% } %>
+
+
+        <label for="nombre">Nombre Producto</label>
+        <input type="text" name="nombre" required>
+
+        <label for="descripcion">Descripción Producto</label>
+        <input type="text" name="descripcion" required>
+
+        <label for="precio">Precio Producto</label>
+        <input type="number" name="precio" required>
+        
+        <label for="img">Imagen Presentación</label>
+        <input type="file" name="img" id="imagenPresentacion" accept="image/*" class="categoria__input-file">
+
+        <div class="crear__contenedor-botones">
+            <button id="cancelarCrear">Cancelar</button>
+            <button type="submit">Crear</button>
+        </div>
+    </form>
+</div>

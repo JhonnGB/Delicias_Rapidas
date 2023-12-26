@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="../css/estilosAdm.css">
+
+<div class="crear-adm__contenedor">
+    <h2>Crear Nueva Categoria</h2>
+    <form action="/adm/crear-categoria" method="post" enctype="multipart/form-data">
+        
+        <label for="nomCatego">Nombre Categoria</label>
+        <input type="text" name="nomCatego" required>
+
+        <!-- <label for="numProducts">Numero Productos</label> -->
+        <!-- <input type="number" name="numProducts" required> -->
+        
+        <label for="cover">Imagen Presentación</label>
+        <input type="file" name="cover" id="imagenPresentacion" accept="image/*" class="categoria__input-file">
+
+        <label for="icono">Icono Presentación</label>
+        <input type="file" name="icono" id="iconoPresentacion" accept="image/*" class="categoria__input-file">
+
+        <div class="crear__contenedor-botones">
+            <button id="cancelarCrear">Cancelar</button>
+            <button type="submit">Crear</button>
+        </div>
+    </form>
+</div>

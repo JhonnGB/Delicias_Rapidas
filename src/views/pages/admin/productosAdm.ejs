@@ -1,0 +1,89 @@
+<%- include("../../partials/head", {tituloWeb: 'Admin Productos' , rutaEstilos: '../../css/estilosAdm.css' }) %>
+<%- include("../../partials/headerAdmin.ejs") %>
+
+
+    <main class="contenedor-contenido">
+        <div class="contenido__encabezado-tabla">
+            <div>
+                <h1>Productos</h1>
+                <a href="/adm/productos-todos" class="boton__sin-filtro"><img src="/icons/sin-filtro.png" alt="sin filtro"></a>
+            </div>
+
+            <button id="mostrarVentanaCrear" class="crear-categoria__adm" data-categoria="<%= typeof categoria !== 'undefined' ? categoria : [] %>">
+                <img src="/icons/crear.png" alt="crear">
+            </button>
+            <!-- Ventana emergente crear producto -->
+            <div id="ventanaCrear" class="ventana-crear__container">
+                <!-- Aqui se carga la ventana emergente "Crear Producto" -->
+            </div>
+        </div>
+        <div class="tabla-contenido">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Nombre Producto</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% if( productos && productos.length > 0) { %>
+                        <% let i = 1; %>
+                        <% productos.forEach(function(producto, index) { %>
+                            <tr>
+                                <td><%= i %></td>
+                                <td><%= producto.nombre %></td>
+                                <td class="td-difuminado">
+                                    <% const words = producto.descripcion.split(' ').slice(0, 4).join(' ') %>
+                                    <%= words %>...
+                                </td>        
+                                    <td>$<%= producto.precio.toLocaleString('es-ES') %></td>
+                                <td>
+                                    <button class="categoria__boton-eliminar mostrarVentanaEliminar" data-index="<%= index %>">Eliminar</button>
+                                    <!-- Ventana emergente - eliminar producto -->
+                                    <div id="ventanaEliminar<%= index %>" class="ventana-eliminar__container">
+                                        <div class="eliminar-adm__contenedor">
+                                            <form action="/adm/eliminar-producto?_method=DELETE" method="POST">     
+                                                <input type="hidden" name="_method" value="DELETE">                   
+                                                <div>
+                                                    <img src="/icons/precaucion.png">
+                                                    <span>Atención</span>
+                                                </div>
+                                
+                                                <p>¿Esta seguro de querer eliminar el producto <%= producto.nombre %>?</p>
+                                                <input type="hidden" name="recursoId" value="<%= producto._id %>">
+                                
+                                                <button type="submit" class="btn-ejecutar__adm">Eliminar</button>
+                                                <button type="button" id="cancelarEliminar<%= index %>" class="btn-cancelar__adm">Cancelar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="mostrarVentanaEditar categoria__boton-editar" data-index="<%= index %>" data-recursoId="<%= producto._id %>">Editar</button>
+                                    <!-- Ventana emergente - editar producto -->
+                                    <div id="ventanaEditar<%= index %>" class="ventana-editar__container">
+                                        <!-- Aqui se carga la ventana emergente "Editar Categoria" -->
+                                    </div>
+                                </td>
+                            </tr>
+                            <% i++; %>
+                        <% }); %>
+                    <% } else if (!productos.length > 0 && allProducts === false) { %>
+                        <td colspan="5">
+                            <h1>La categoria "<%= categoria %>" aún no contiene ningun Producto</h1>
+                        </td>
+                    <% } else if (allProducts === true) { %>
+                        <td colspan="5">
+                            <h1>Base de datos sin Productos</h1>
+                        </td>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+<script src="../../js/adminScripts/productosAdm.js"></script>

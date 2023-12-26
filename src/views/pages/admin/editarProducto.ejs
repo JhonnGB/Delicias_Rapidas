@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="../css/estilosAdm.css">
+
+<div class="editar-adm__contenedor">
+    <h2>Editar Producto</h2>
+
+    <form action="/adm/editar-producto?_method=PUT" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="_method" value="PUT">
+
+        <label for="productoId">ID</label>
+        <input type="text" name="productoId" value="<%= datosProducto._id %>" readonly>
+
+        <label for="nombre">Nombre Producto</label>
+        <input type="text" name="nombre" placeholder="<%= datosProducto.nombre %>">
+
+        <label for="descripcion">Descripción Producto</label>
+        <input type="text" name="descripcion" placeholder="<%= datosProducto.descripcion %>">
+
+        <label for="precio">Precio Producto</label>
+        <input type="number" name="precio" placeholder="<%= datosProducto.precio %>">
+        
+        <label for="img">Imagen Presentación</label>
+        <input type="file" name="img" id="imagenPresentacion" accept="image/*" class="categoria__input-file">
+
+        <div class="crear__contenedor-botones">
+            <button type="submit">Actualizar</button>
+            <button type="" id="cancelarEditar">Cancelar</button>
+        </div>
+    </form>    
+</div>

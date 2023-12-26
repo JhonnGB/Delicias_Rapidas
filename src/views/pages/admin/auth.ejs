@@ -1,0 +1,20 @@
+<%- include('../../partials/head', { tituloWeb: 'Autenticación Admin', rutaEstilos: '../css/estilosAdm.css' }) %>
+
+<!-- Mensajes Success y errors (req.flash) -->
+<%- include('../../partials/messages.ejs') %>
+<!-- stilos para mensajes -->
+<link rel="stylesheet" href="../css/estilos.css">
+
+<body class="auth-admin__body"> 
+    <main class="auth-admin__contenedor">
+        <form class="auth-admin__formulario" action="/auth/admin" method="post">
+            <h1>Autenticación de administrador</h1>
+            <span>Ingrese la clave de empresa para continuar:</span>
+            
+            <label type="hidden" for="companyKey"></label>
+            <input type="password" name="companyKey" autofocus>
+
+            <button type="submit">Ingresar</button>
+        </form>
+    </main>
+</body>

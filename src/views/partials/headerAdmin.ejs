@@ -1,0 +1,42 @@
+<!-- stilos para ventana emergente user -->
+<link rel="stylesheet" href="../../css/estilos.css">
+
+<header class="contenedor__header-adm">
+    <div class="menu-adm__barra">
+        <button id="abrirMenuAdmin" class="menu-adm__boton"><img src="/icons/menu-adm.png" alt="="></button>
+        <span class="menu-adm__span" >Menú Administrador</span>
+    </div>
+    
+    <div class="header-adm__zona-usuario">
+
+        <a id="btnMostrar" class="header-adm__ruta">
+          <img src="../../icons/usuario.png" alt="usuario">
+        </a>
+
+        <div id="ventana" class="popup">
+            <ul>
+                <!-- <li><a href="#">Ver Perfil</a></li> -->
+                <li><a href="/logout">Cerrar Sesión</a></li>
+            </ul>
+        </div>    
+    
+        <a class="header-adm__ruta2" href="/">
+            <img src="../../icons/inicio.png" alt="inicio">
+        </a>
+      </div>
+</header>
+
+<!-- Mensajes Success y errors (req.flash) -->
+<%- include('./messages.ejs') %>
+
+<nav class="adm-nav">
+    <a href="/adm">Categorias</a>
+    <a href="/adm/productos-todos">Productos</a>
+    <hr>
+    <a href="/logout">Cerrar Sesión</a>
+</nav>
+
+<script src="../../js/adminScripts/menuAdm.js" defer></script>
+
+<!-- scripts para ventana emergente user -->
+<script src="../../js/header.js"></script>

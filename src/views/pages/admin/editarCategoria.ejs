@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="../css/estilosAdm.css">
+
+<div class="editar-adm__contenedor">
+    <h2>Editar Categoria</h2>
+
+    <form action="/adm/editar-categoria?_method=PUT" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="_method" value="PUT">
+
+        <label for="categoriaId">ID</label>
+        <input type="text" name="categoriaId" value="<%= datosCategoria._id %>" readonly>
+
+        <label for="nomCatego">Nombre Categoria</label>
+        <input type="text" name="nomCatego" placeholder="<%= datosCategoria.nomCatego %>">
+
+        <label for="numProducts">Numero Productos</label>
+        <input type="number" name="numProducts" placeholder="<%= datosCategoria.numProducts %>">
+        
+        <label for="cover">Imagen Presentación</label>
+        <input type="file" name="cover" id="imagenPresentacion" accept="image/*" class="categoria__input-file">
+
+        <label for="icono">Icono Presentación</label>
+        <input type="file" name="icono" id="iconoPresentacion" accept="image/*" class="categoria__input-file">
+
+        <div class="crear__contenedor-botones">
+            <button type="submit">Actualizar</button>
+            <!-- <a href="/adm">Cancelar</a> -->
+            <button id="cancelarEditar">Cancelar</button>
+        </div>
+    </form>    
+</div>
+
+<script src="../js/adminScripts/categoriasAdm.js"></script>

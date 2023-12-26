@@ -1,0 +1,81 @@
+<%- include("../../partials/head", {tituloWeb: 'Admin Categorias' , rutaEstilos: '../css/estilosAdm.css' }) %>
+<%- include("../../partials/headerAdmin.ejs") %>
+
+
+    <main class="contenedor-contenido">
+        <div class="contenido__encabezado-tabla">
+            <h1>Categorias</h1>
+            <button id="mostrarVentanaCrear" class="crear-categoria__adm"><img src="/icons/crear.png" alt="crear"></button>
+
+            <!-- Ventana emergente crear categoria -->
+            <div id="ventanaCrear" class="ventana-crear__container">
+                <!-- Aqui se carga la ventana emergente "Crear Categoria" -->
+            </div>
+        </div>
+
+        <div class="tabla-contenido">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Nombre Categoria</th>
+                        <th>Cantidad Productos</th>
+                        <th>Productos</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if( categorias && categorias.length > 0) { %>    
+                        <% let i = 1; %>
+                        <% categorias.forEach(function(categoria, index) { %>
+                        <tr>
+                            <td><%= i %></td>
+                            <td><%= categoria.nomCatego %></td>
+                            <td><%= categoria.numProducts %></td>
+                            <td>
+                                <a href="/adm/productos/<%= categoria.nomCatego %>">
+                                    <img class="contenido__ver-mas" src="/icons/ver-mas.png" alt="ver-productos">
+                                </a>
+                            </td>
+                            <td>
+                                <button class="categoria__boton-eliminar mostrarVentanaEliminar" data-index="<%= index %>">Eliminar</button>
+                                <!-- Ventana emergente - eliminar categoria -->
+                                <div id="ventanaEliminar<%= index %>" class="ventana-eliminar__container">
+                                    <div class="eliminar-adm__contenedor">
+                                        <form action="/adm/eliminar-categoria?_method=DELETE" method="POST">     
+                                            <input type="hidden" name="_method" value="DELETE">                   
+                                            <div>
+                                                <img src="/icons/precaucion.png">
+                                                <span>Atención</span>
+                                            </div>
+                            
+                                            <p>¿Esta seguro de querer eliminar la categoria <%= categoria.nomCatego %>?</p>
+                                            <input type="hidden" name="recursoId" value="<%= categoria._id %>">
+                            
+                                            <button type="submit" class="btn-ejecutar__adm">Eliminar</button>
+                                            <button type="button" id="cancelarEliminar<%= index %>" class="btn-cancelar__adm">Cancelar</button>
+                                        </form>
+                                    </div>
+                                </div>                    
+                            </td>
+                            <td>
+                                <button class="mostrarVentanaEditar categoria__boton-editar" data-index="<%= index %>" data-recursoId="<%= categoria._id %>">Editar</button>
+                                <!-- Ventana emergente - editar categoria -->
+                                <div id="ventanaEditar<%= index %>" class="ventana-editar__container">
+                                    <!-- Aqui se carga la ventana emergente "Editar Categoria" -->
+                                </div>
+                            </td>
+                        </tr>
+                        <% i++; %>
+                        <% }); %>
+                    <% } else { %>
+                        <td colspan="5">
+                            <h1>Base de datos sin Categorias</h1>
+                        </td>
+                    <% }%>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+<script src="../js/adminScripts/categoriasAdm.js"></script>

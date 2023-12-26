@@ -1,0 +1,15 @@
+<!-- mensajes exitoso -->
+<% if (successMessage && successMessage.length > 0) { %>
+    <div id="msgsPop-up" class="msg-success">
+        <p><%= successMessage[0] %></p>
+    </div>
+<% } %>
+
+<!-- mensajes error -->
+<% if (errorsMessage && errorsMessage.length > 0) { %>
+    <div id="msgsPop-up" class="msg-error">
+        <p><%= errorsMessage[0] %></p>
+    </div>
+<% } %>
+
+<script src="../../js/msgs.js" defer></script>
