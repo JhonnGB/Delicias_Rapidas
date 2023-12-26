@@ -125,5 +125,5 @@ app.use(require("./routes/admin_routes/authAdm.routes"));
 
 // Iniciar el servidor
 app.listen(port, () => {
-  console.log(`Servidor ${port} en funcionamiento`);
+  console.log(`Servidor ${port} en funcionamiento.`);
 });
