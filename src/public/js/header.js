@@ -50,3 +50,4 @@ navLinks.forEach(link => {
     link.classList.remove('header-active');
   }
 });
+

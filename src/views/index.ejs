@@ -3,26 +3,14 @@
 <!-- Encabezado perosnalizado -->
 <%- include('partials/custom-header') %>
 
-<script>
-  function scrollToSection(sectionId) {
-    var section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      });
-    }
-  }
-</script>
 <script src="/js/carrusel.js" defer></script>
-
+<script src="/js/inicio.js" defer></script>
 
 
 <!-- Carrucel -->
 <div class="carrusel-inicio__contenedor">
 
-  <div class="carrusel-flecha carrusel-flecha-izquierda">&#9665;</div>
+  <div class="carrusel-flecha carrusel-flecha-izquierda">&#60;</div>
 
   <div class="carrusel-inicio__div">
     <div class="carrusel-imagen">
@@ -36,7 +24,7 @@
     </div>
   </div>
 
-  <div class="carrusel-flecha carrusel-flecha-derecha">&#9655;</div>
+  <div class="carrusel-flecha carrusel-flecha-derecha">&#62;</div>
 
   <ul class="carrusel__botones">
     <div class="carrusel__btn btn-activo"></div>
@@ -57,7 +45,7 @@
                 <h2 class="categorias-container__nombre"><%=category.nomCatego.toUpperCase()%></h2>
                 <img class="categorias-container__img" src="imgs/<%=category.cover%>" alt="categoria Hamburguesa">
                 <p class="categorias-container__descripcion">Más de <%=category.numProducts%> variaciones</p>
-                <a class="categorias-container__boton cat" href="/productos/<%=category.nomCatego%>">
+                <a class="categorias-container__boton" href="/productos/<%=category.nomCatego%>">
                     VER
                 </a>
             </div>
@@ -81,9 +69,6 @@
 
         <div class="formulario__tyc">
           <input type="checkbox" required> Acepto los <a href="/nosotros">Términos y Condiciones</a>
-        </div>
-        
-        <div class="formulario__boton">
           <button type="submit" class="formulario__boton__estilos">Enviar</button>
         </div>
     </form>
@@ -91,8 +76,9 @@
     <div class="formulario__enunciado">
         <p>
           Queremos darte el mejor servicio, por eso esperamos tu mensaje con gran aprecio.
-          <br>
-          <br>
+        </p>
+        
+        <p>
           ¿Alguna duda, petición, sugerencia, inconformidad o queja? puedes enviarnos un mensaje.
         </p>
     </div> 
