@@ -44,7 +44,13 @@
             <div class="categorias-container__categoria">
                 <h2 class="categorias-container__nombre"><%=category.nomCatego.toUpperCase()%></h2>
                 <img class="categorias-container__img" src="imgs/<%=category.cover%>" alt="categoria Hamburguesa">
-                <p class="categorias-container__descripcion">Más de <%=category.numProducts%> variaciones</p>
+                <p class="categorias-container__descripcion">
+                  <% if (category.numProducts == "0") { %>
+                    No disponible
+                  <% } else { %>
+                      <%= category.numProducts %> variaciones
+                  <% } %>
+                </p>
                 <a class="categorias-container__boton" href="/productos/<%=category.nomCatego%>">
                     VER
                 </a>
